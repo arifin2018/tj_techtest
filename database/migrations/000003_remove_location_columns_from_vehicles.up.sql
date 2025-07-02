@@ -1,0 +1,4 @@
+ALTER TABLE vehicles
+DROP COLUMN IF EXISTS latitude,
+DROP COLUMN IF EXISTS longitude,
+DROP COLUMN IF EXISTS last_seen;

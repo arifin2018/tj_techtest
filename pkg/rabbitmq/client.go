@@ -328,3 +328,22 @@ func (c *Client) Close() {
 		c.conn.Close()
 	}
 }
+
+func (c *Client) PublishGeofenceEvent(event GeofenceEvent) error {
+	eventJSON, err := json.Marshal(event)
+	if err != nil {
+		return err
+	}
+
+	err = c.channel.Publish(
+		GeofenceExchange,
+		"",
+		false,
+		false,
+		amqp.Publishing{
+			ContentType: "application/json",
+			Body:        eventJSON,
+		},
+	)
+	return err
+}

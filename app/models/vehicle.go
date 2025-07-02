@@ -9,9 +9,6 @@ import (
 type Vehicle struct {
 	ID        uint           `json:"id" gorm:"primaryKey"`
 	Name      string         `json:"name" gorm:"not null"`
-	Latitude  float64        `json:"latitude"`
-	Longitude float64        `json:"longitude"`
-	LastSeen  time.Time      `json:"last_seen"`
 	CreatedAt time.Time      `json:"created_at"`
 	UpdatedAt time.Time      `json:"updated_at"`
 	DeletedAt gorm.DeletedAt `json:"deleted_at" gorm:"index"`
